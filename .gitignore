@@ -1,7 +1,7 @@
-/api-gateway/dist
-/auth/dist
-/billing/dist
+/services/api-gateway/dist
+/services/auth/dist
+/services/billing/dist
 
-/api-gateway/node_modules
-/auth/node_modules
-/billing/node_modules
+/services/api-gateway/node_modules
+/services/auth/node_modules
+/services/billing/node_modules
