@@ -11,7 +11,7 @@ async function bootstrap() {
       transport: Transport.KAFKA,
       options: {
         client: {
-          brokers: ['localhost:9092'],
+          brokers: ['kafka:29092'],
         },
         consumer: {
           groupId: 'auth-consumer',
@@ -19,17 +19,6 @@ async function bootstrap() {
       },
     });
   await app.startAllMicroservices();
-  // const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
-  //   transport: Transport.KAFKA,
-  //   options: {
-  //     client: {
-  //       brokers: ['localhost:9092'],
-  //     },
-  //     consumer: {
-  //       groupId: 'auth-consumer',
-  //     },
-  //   },
-  // });
   app.listen(4002)
 }
 bootstrap();

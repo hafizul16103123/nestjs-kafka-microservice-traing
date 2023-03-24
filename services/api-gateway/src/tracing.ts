@@ -12,11 +12,11 @@ import { Resource } from '@opentelemetry/resources';
 import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
 import { JaegerExporter } from '@opentelemetry/exporter-jaeger';
 import { KafkaJsInstrumentation } from 'opentelemetry-instrumentation-kafkajs';
-// const traceExporter = new ConsoleSpanExporter();
-const jaegerExporter = new JaegerExporter({
-  endpoint: 'http://localhost:14268/api/traces',
-});
 
+// const traceExporter = new ConsoleSpanExporter(); //for console tracing 
+const jaegerExporter = new JaegerExporter({
+  endpoint: 'http://jaeger:14268/api/traces',
+});
 const traceExporter = jaegerExporter;
 
 export const otelSDK = new NodeSDK({
@@ -25,6 +25,7 @@ export const otelSDK = new NodeSDK({
   }),
   // spanProcessor: new SimpleSpanProcessor(traceExporter), // for developpment use
   spanProcessor: new BatchSpanProcessor(traceExporter), // for production use
+
   instrumentations: [
     new HttpInstrumentation(),
     new ExpressInstrumentation(),

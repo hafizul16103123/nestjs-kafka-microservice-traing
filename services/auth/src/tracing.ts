@@ -14,7 +14,7 @@ import { JaegerExporter } from '@opentelemetry/exporter-jaeger';
 import { KafkaJsInstrumentation } from 'opentelemetry-instrumentation-kafkajs';
 // const traceExporter = new ConsoleSpanExporter();
 const jaegerExporter = new JaegerExporter({
-  endpoint: 'http://localhost:14268/api/traces',
+  endpoint: 'http://jaeger:14268/api/traces',
 });
 
 const traceExporter = jaegerExporter;
